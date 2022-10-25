@@ -1,0 +1,424 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'Sora', sans-serif;
+}
+
+
+body {
+  width: 1/2;
+  background-color: #1C1C1C;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.container2 {
+  width: 100%;
+  max-width: 500px;
+  margin: 8% auto;
+  padding: 0 20px;
+  display: grid;
+  flex-wrap: wrap;
+  gap: 20px 20px;
+
+
+}
+
+.containerblock {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 5%;
+  left: 50%;
+  border-radius: 20%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+
+.photo {
+  width: 70%;
+  border-radius: 35%;
+  border: 1px solid #01eeff;
+  display: block;
+ 
+  padding-top: 20px auto 0px auto;
+
+}
+
+h1 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: "Oswald", sans-serif;
+  font-style: italic;
+}
+
+.profile {
+  padding-top: 20px;
+  font-weight: 700;
+  font-size: 2.5em;
+  display: block;
+}
+
+.name {
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  animation: flipInY; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+
+.profile .skill {
+  font-size: 0.9em;
+  
+  color: rgb(190, 190, 190);
+}
+
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 20px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 5px;
+  border: 1px solid;
+  border-image: linear-gradient(
+90deg
+,#F2298200,#01eeff,#F2298200) 1;
+  border-left: 0;
+  border-bottom: 0;
+  border-right: 0;
+  background-color: #161616;
+  transition: all 0.5s ease;
+}
+
+.purple {
+  margin-top: 10px;
+}
+
+.blockchain {
+  
+  display: flex;
+  
+  justify-content: center;
+}
+
+
+.card .info {
+  text-align: left;
+}
+
+.card .info h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.card .info p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
+  font-weight: 100;
+}
+
+
+.card i {
+  margin-right: 15px;
+}
+
+.card:hover, .card:active {
+  background-color: white;
+  color: black;
+}
+
+
+@-webkit-keyframes floating {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-8px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+@keyframes floating {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-8px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+
+
+.container1 {
+position: absolute;
+transform: translate(-50%, -50%);
+padding-top: 50;
+left: 50%;
+border-radius: 20%;
+}
+
+.glitch {
+color: rgb(223, 191, 191);
+position: relative;
+font-size: 8vw;
+margin: auto auto;
+animation: glitch 5s 5s infinite;
+border-radius: 20%;
+}
+
+.glitch::before {
+content: attr(data-text);
+position: absolute;
+left: -1px;
+text-shadow: -2px 0 #01eeff;
+background: black;
+overflow: hidden;
+top: 0;
+animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+border-radius: 20%;
+}
+
+.glitch::after {
+content: attr(data-text);
+position: absolute;
+left: 2px;
+text-shadow: -2px 0 lightgreen;
+background: black;
+overflow: hidden;
+top: 0;
+animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+border-radius: 20%;
+}
+
+@keyframes glitch {
+1%{
+  transform: rotateX(10deg) skewX(90deg);
+}
+2%{
+  transform: rotateX(0deg) skewX(0deg);
+}
+}
+
+@keyframes noise-1 {
+  $steps: 30;
+  @for $i from 1 through $steps {
+  #{percentage($i*(1/$steps))} {
+    $top: random(100);
+    $bottom: random(101 - $top);
+    clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+  }
+}
+}
+
+@keyframes noise-2 {
+$steps: 30;
+@for $i from 0 through $steps {
+  #{percentage($i*(1/$steps))} {
+    $top: random(100);
+    $bottom: random(101 - $top);
+    clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+  }
+}
+}
+
+
+
+@keyframes fudge {
+from {
+  transform: translate(0px, 0px);
+}
+to {
+  transform: translate(0px, 2%);
+}
+}
+
+.glow {
+@extend .glitch;
+text-shadow: 0 0 1000px rgb(223, 191, 191);
+color: transparent;
+position: absolute;
+top: 0;
+}
+
+
+@keyframes glitch-2 {
+1%{
+  transform: rotateX(10deg) skewX(70deg);
+}
+2%{
+  transform: rotateX(0deg) skewX(0deg);
+}
+}
+
+
+.footer {
+  text-align: center;
+
+  margin-top: 35%;
+  color: white;
+}
+
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .glitch {
+    color: rgb(223, 191, 191);
+    position: relative;
+    font-size: 3rem;
+    margin: auto auto;
+    animation: glitch 5s 5s infinite;
+    border-radius: 20%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .glitch {
+    color: rgb(223, 191, 191);
+    position: relative;
+    font-size: 3.5rem;
+    margin: auto auto;
+    animation: glitch 5s 5s infinite;
+    border-radius: 20%;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .glitch {
+    color: rgb(223, 191, 191);
+    position: relative;
+    font-size: 4rem;
+    margin: auto auto;
+    animation: glitch 5s 5s infinite;
+    border-radius: 20%;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1479px) { 
+  .glitch {
+    color: rgb(223, 191, 191);
+    position: relative;
+    font-size: 4rem;
+    margin: auto auto;
+    animation: glitch 5s 5s infinite;
+    border-radius: 20%;
+    }
+}
+
+@media (min-width: 1480px) and (max-width: 1919px) { 
+  .glitch {
+    color: rgb(223, 191, 191);
+    position: relative;
+    font-size: 4rem;
+    margin: auto auto;
+    animation: glitch 5s 5s infinite;
+    border-radius: 20%;
+    }
+}
+
+@media (min-width: 1920px) and (max-width: 3840px) { 
+  .glitch {
+    color: rgb(223, 191, 191);
+    position: relative;
+    font-size: 4rem;
+    margin: auto auto;
+    animation: glitch 5s 5s infinite;
+    border-radius: 20%;
+    }
+
+  }
+
+  @media (min-width: 480px) and (max-width: 768px) {
+    .photo {
+      max-width: 200px;
+      border-radius: 35%;
+      border: 1px solid #01eeff;
+      display: block;
+      margin: 0 auto 0px auto;
+    
+      }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .photo {
+      max-width: 350px;
+      border-radius: 35%;
+      border: 1px solid #01eeff;
+      display: block;
+      margin: 0 auto 0px auto;
+    
+      }
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    .photo {
+      max-width: 350px;
+      border-radius: 35%;
+      border: 1px solid #01eeff;
+      display: block;
+      margin: 0 auto 0px auto;
+  }
+}
+  
+  @media (min-width: 1201px) and (max-width: 1479px) { 
+    .photo {
+      max-width: 400px;
+      border-radius: 35%;
+      border: 1px solid #01eeff;
+      display: block;
+      margin: 0 auto 0px auto;
+      }
+  }
+  
+  @media (min-width: 1480px) and (max-width: 1919px) { 
+    .photo {
+      max-width: 450px;
+      border-radius: 35%;
+      border: 1px solid #01eeff;
+      display: block;
+      margin: 0 auto 0px auto;
+      }
+  }
+  
+  @media (min-width: 1920px) and (max-width: 3840px) { 
+    .photo {
+      max-width: 450px;
+      border-radius: 35%;
+      border: 1px solid #01eeff;
+      display: block;
+      margin: 0 auto 0px auto;
+      }
+  
+    }
